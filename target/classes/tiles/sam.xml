@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+   <definition name="baseLayout" template="/WEB-INF/views/layout.jsp">
+      <put-attribute name="title" value=""/>
+      <put-attribute name="top" value="/WEB-INF/views/top.jsp"/>
+      <put-attribute name="body" value=""/>
+      <put-attribute name="footer" value="/WEB-INF/views/footer.jsp"/>
+   </definition>
+   
+   <definition name="main" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/main.jsp"/>
+   </definition> 
+   
+   <definition name="boardinput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/boardinput.jsp"/>
+   </definition> 
+   
+   <definition name="boardout" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/boardout.jsp"/>
+   </definition> 
+   
+    <definition name="boarddetail" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/boarddetail.jsp"/>
+   </definition> 
+   
+   <definition name="reply" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/reply.jsp"/>
+   </definition> 
+   
+   <!-- 성적관련 -->
+   
+   <definition name="scoreinput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/score/scoreinput.jsp"/>
+   </definition> 
+   
+   <definition name="scoreout" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/score/scoreout.jsp"/>
+   </definition> 
+   
+   <definition name="updateview" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/score/updateview.jsp"/>
+   </definition> 
+   
+    <definition name="scoresearch" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/score/scoresearch.jsp"/>
+   </definition> 
+   
+    <!-- 도서관련 -->
+    <definition name="bookinput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/bookinput.jsp"/>
+   </definition> 
+    
+     <definition name="bookout" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/bookout.jsp"/>
+   </definition> 
+   
+     <definition name="bookupdateview" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/bookupdateview.jsp"/>
+   </definition> 
+    
+    <definition name="bookdetail" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/bookdetail.jsp"/>
+   </definition> 
+   
+    <definition name="booksearch" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/booksearch.jsp"/>
+   </definition> 
+   
+   
+   
+   <!-- 멤버 -->
+   <definition name="memberinput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/member/memberinput.jsp"/>
+   </definition> 
+   
+   <definition name="memberout" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/member/memberout.jsp"/>
+   </definition> 
+   
+   <definition name="memberupdateview" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/member/memberupdateview.jsp"/>
+   </definition> 
+   
+   <definition name="membersearch" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/member/membersearch.jsp"/>
+   </definition> 
+   
+   
+   
+   
+   
+    <definition name="login" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/login/login.jsp"/>
+   </definition> 
+    
+    
+    
+</tiles-definitions>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

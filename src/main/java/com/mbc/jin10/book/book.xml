@@ -1,0 +1,69 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.jin10.book.BookService">
+	<insert id="bookinput">
+	insert into book0910(bnumber,bname,bwriter,bcompany,bprice,bdate,bcontent,bimage,breadcnt)
+	 values(bnumber_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},0)
+	</insert>
+	
+	<select id="bookout" resultType="com.mbc.jin10.book.BookDTO">
+	select bnumber,bname,bwriter,bcompany,bprice,to_char(bdate,'yy-MM-dd')bdate,bcontent,bimage,breadcnt
+	from book0910
+	
+	</select>
+	
+	<select id="update" resultType="com.mbc.jin10.book.BookDTO">
+	select bnumber,bname,bwriter,bcompany,bprice,to_char(bdate,'yy-MM-dd')bdate,bcontent,bimage,breadcnt from book0910
+	where bnumber=#{param1}
+	</select>
+	
+	<update id="bookupdate2">
+	update book0910 set bname=#{param1},bwriter=#{param2},bcompany=#{param3},bprice=#{param4},bdate=#{param5},
+	bcontent=#{param6},bimage=#{param7} where bnumber=#{param8}
+	</update>
+	
+	<delete id="bookdelete">
+	delete from book0910 where bnumber=#{param1}
+	</delete>
+	
+	<select id="bookdetail" resultType="com.mbc.jin10.book.BookDTO">
+	select * from book0910 where bnumber=#{param1}
+	</select>
+	
+	<update id="breadcnt">
+	update book0910 set breadcnt=breadcnt+1 where bnumber=#{param1}
+	</update>
+	
+	<!-- 33333 -->
+	<!-- 페이징처리에서 전첼레코드수 구하기 -->
+	<select id="total" resultType="int">
+		select count(*)from book0910
+	</select>
+
+	<select id="page" resultType="com.mbc.jin10.book.BookDTO">
+		select * from (
+		select rownum rn,A.* from(
+		select bnumber,bname,bwriter,bcompany,bprice,to_char(bdate,'yy-MM-dd')bdate,bcontent,bimage,breadcnt 
+		from book0910 order by bnumber DESC)A)
+		where rn between #{start} AND #{end}
+	</select>
+	
+	<select id="bnamesearch" resultType="com.mbc.jin10.book.BookDTO">
+	select bnumber,bname,bwriter,bcompany,bprice,to_char(bdate,'yy-MM-dd')bdate,bcontent,bimage,breadcnt from book0910
+	where bname like #{param1}
+	</select>
+	
+	<select id="bwritersearch" resultType="com.mbc.jin10.book.BookDTO">
+	select bnumber,bname,bwriter,bcompany,bprice,to_char(bdate,'yy-MM-dd')bdate,bcontent,bimage,breadcnt from book0910
+	where bwriter like #{param1}
+	</select>
+	
+	<select id="bcompanysearch" resultType="com.mbc.jin10.book.BookDTO">
+	select bnumber,bname,bwriter,bcompany,bprice,to_char(bdate,'yy-MM-dd')bdate,bcontent,bimage,breadcnt from book0910
+	where bcompany like #{param1}
+	</select>
+	
+	
+</mapper>
