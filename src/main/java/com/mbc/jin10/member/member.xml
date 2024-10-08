@@ -1,0 +1,39 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.jin10.member.MemberService">
+	<insert id="memberinput">
+	insert into member0910 values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
+	</insert>
+	
+	<select id="memberout" resultType="com.mbc.jin10.member.MemberDTO">
+	select * from member0910
+	</select>
+	
+	<select id="memberupdate" resultType="com.mbc.jin10.member.MemberDTO">
+	select * from member0910 where id=#{param1}
+	</select>
+	
+	<update id="memberupdate2">
+	update member0910 set pw=#{param1},name=#{param2},tel=#{param3},gender=#{param4},address=#{param5},greeting=#{param6}
+	where id=#{param7}
+	</update>
+
+	<delete id="memberdelete">
+	delete from member0910 where id=#{param1}
+	</delete>
+	
+	<select id="idcheck" resultType="int">
+	select count(*) from member0910 where id=#{param1}
+	</select>
+	
+	<select id="idsearch" resultType="com.mbc.jin10.member.MemberDTO">
+	select * from member0910 where id like #{param1}
+	</select>
+	
+	<select id="namesearch" resultType="com.mbc.jin10.member.MemberDTO">
+	select * from member0910 where name like #{param1}
+	</select>
+	
+</mapper>

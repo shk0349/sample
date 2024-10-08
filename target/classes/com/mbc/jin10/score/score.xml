@@ -1,0 +1,60 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.jin10.score.ScoreService">
+	<insert id="scoresave">
+	insert into score0910
+	values(score_seq.nextval,#{param1},#{param2},#{param3},#{param4})
+	</insert>
+	
+	<select id="scoreout" resultType="com.mbc.jin10.score.ScoreDTO">
+	select snumber,name,kor,eng,math,(kor+eng+math) as tot,round((kor+eng+math)/3,1) as avg,
+	case when(kor+eng+math)/3 >=90 then 'A'
+		when(kor+eng+math)/3 >=80 then 'B'
+		when(kor+eng+math)/3 >=70 then 'C'
+		when(kor+eng+math)/3 >=60 then 'D'
+		else 'F'
+		end as hak,
+		rank() over(order by (kor+eng+math)desc) as rank from score0910 
+	</select>
+	
+	<delete id="delete">
+	delete from score0910 where snumber=#{param1}
+	</delete>
+	
+	<select id="update" resultType="com.mbc.jin10.score.ScoreDTO">
+	select * from score0910 
+	where snumber=#{param1}
+	</select>
+	
+	<update id="update2">
+	update score0910 set name=#{param1},kor=#{param2},eng=#{param3},math=#{param4} where snumber=#{param5}
+	</update>
+	
+	<select id="searchname" resultType="com.mbc.jin10.score.ScoreDTO">
+	select snumber,name,kor,eng,math,(kor+eng+math) as tot,round((kor+eng+math)/3,1) as avg,
+	case when(kor+eng+math)/3 >=90 then 'A'
+		when(kor+eng+math)/3 >=80 then 'B'
+		when(kor+eng+math)/3 >=70 then 'C'
+		when(kor+eng+math)/3 >=60 then 'D'
+		else 'F'
+		end as hak,
+		rank() over(order by (kor+eng+math)desc) as rank from score0910 where name like #{param1}
+	</select>
+	
+	<select id="searchsnumber" resultType="com.mbc.jin10.score.ScoreDTO">
+	select snumber,name,kor,eng,math,(kor+eng+math) as tot,round((kor+eng+math)/3,1) as avg,
+	case when(kor+eng+math)/3 >=90 then 'A'
+		when(kor+eng+math)/3 >=80 then 'B'
+		when(kor+eng+math)/3 >=70 then 'C'
+		when(kor+eng+math)/3 >=60 then 'D'
+		else 'F'
+		end as hak,
+		rank() over(order by (kor+eng+math)desc) as rank from score0910 where snumber like #{param1}
+	</select>
+	
+	
+	
+	
+</mapper>
